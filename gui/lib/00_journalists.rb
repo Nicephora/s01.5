@@ -21,12 +21,12 @@ puts accounts.select {
 
 puts "combien commencent avec une maj ?"
 puts accounts.select {
-  |login| login[1] == login[1].upcase
+  |login| login[1].match(/[A-Z]/)
 }.length
 
 puts "combien contiennent une maj ?"
 puts accounts.select {
-  |login| (login.downcase == login) == false
+  |login| login.match(/[A-Z]/)
 }.length
 
 puts "combien de _ de partout ?"

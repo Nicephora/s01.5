@@ -10,10 +10,29 @@ names = ["Bitcoin", "Ethereum", "XRP", "Bitcoin Cash", "EOS", "Litecoin", "Carda
 crypto = names.zip(prices).to_h
 
 puts "qui a la plus grosse ?"
-puts crypto.max_by{ |key,value| value[1..-1].to_f }
+puts crypto.max_by{
+  |key,value| value[1..-1].to_f
+}
+
+puts "qui ONT la plus grosse ??"
+theMax = crypto.max_by {
+  |k,v| v[1..-1].to_f
+}[1]
+puts crypto.select {
+  |k,v| v == theMax
+}
 
 puts "qui a la plus petite ?"
-puts crypto.min_by{ |k,v| v[1..-1].to_f }
+puts crypto.min_by{
+  |k,v| v[1..-1].to_f }
+
+puts "qui ONT la plus petite ??"
+theMax = crypto.min_by {
+  |k,v| v[1..-1].to_f
+}[1]
+puts crypto.select {
+  |k,v| v == theMax
+}
 
 puts "qui contient 'coin' ?"
 puts crypto.select{ |k,v| k.downcase.include?("coin") }.length
